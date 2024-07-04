@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            background-image:url("https://i0.wp.com/www.melbournecurrencyexchange.com/wp-content/uploads/order-confirmed.png?resize=500%2C500&ssl=1");
+            background-repeat: no-repeat;
+            background-size: cover;
+            color:aliceblue;
+        }
+
+
+        button{
+            background-color: azure;
+
+        }
+        img{
+            width: "50px";
+        }
+
+        div{
+            background-color: burlywood;
+            max-width: "50%";
+    
+        
+        }
+
+        </style>
+        </head>
+
+        <body>
+           <button id="a1">Back</button>
+
+           <button id="a2">Clear</button>
+           
+           <div>
+            <!-- <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" height="100px"  width="100px" alt=""> -->
+           </div>
+
+
+           <script>
+            let btn=document.getElementById("a1")
+            btn.addEventListener("click",()=>{
+                window.history.back()
+            })
+
+            let btn2=document.getElementById("a2")
+            btn2.addEventListener("click",()=>{
+                localStorage.removeItem("cart");
+                document.querySelector("div").innerHTML="";
+
+            })
+
+            let value=JSON.parse(localStorage.getItem("cart"))
+            value==null?value:[];
+            console.log(value);
+
+            let div=document.getElementsByTagName("div")
+value.map((val,ind)=>{
+
+let div1=document.createElement("div")
+div1.innerHTML=`
+<img src="${val.image}">
+<p>="${val.id}"
+<p>${val.title}</p>
+<p>${val.price}</p>
+<p>${val.description}</p>
+<p>${val.category}</p>
+<p>${val.rating.rate}</p>
+<p>${val.rating.count}</p>
+<button id="a7">buynow</button>
+`
+
+div[0].appendChild(div1)
+})
+let but=document.getElementById("a7")
+but.addEventListener("click",()=>{
+    window.location.assign("./order.html")
+
+
+})
+</script>
+</body>
+</html>
+

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        body{
+            background-image: url("https://wallpaperaccess.com/full/4893798.jpg"); 
+            background-repeat: no-repeat;
+     background-color:white;
+    background-size: cover;
+    
+    }   
+        
+    
+.main{
+width: 100%;
+height: 100vh;
+
+
+
+/* background-image: linear-gradient(to right,rgb(17, 213, 213),rgb(143, 143, 243),rgb(234, 83, 196)); */
+background-image: url(./gifts-golden-shopping-cart-with-copy-space.jpg); 
+background-size: cover;
+ 
+}
+.log{
+background-color: white;
+    width:25% ;
+    height: 80vh;
+    margin-left: 37%;
+    
+}
+.input4{
+    margin-left: 37px;
+    margin-top: 8%;
+    padding: 10px;
+    width: 70%;
+    border: 0px;
+    border-bottom: 1px solid gray;
+}
+.p1{
+    
+    font-size: 18px;
+    position: relative;
+    top: 8%;
+    left: 9%;
+}
+.input1{
+    padding: 10px;
+    width: 70%;
+    border: 0px;
+    border-bottom: 1px solid gray;
+margin-left: 37px;
+margin-top: px;
+}
+.p2{
+    font-size: 18px;
+    position: relative;
+    left: 9%;
+    top: 2%;
+}
+h1{
+    position: relative;
+    left:38% ;
+    top: 5%;
+}.sub{
+    position: relative;
+    top: 3%;
+    padding: 12px;
+    width: 76%;
+    left: 37px;
+    /* background-image: linear-gradient(to right,rgb(17, 213, 213),rgb(143, 143, 243),rgb(234, 83, 196)); */
+    background-color: red;
+border: .2px;
+border-radius: 10px;
+}
+.p3{
+    margin-top: 7%;
+    font-size: 19px;
+    margin-left: 10%;
+
+}.log{
+    position: relative;
+    top: 75px;
+    margin-left: 54%;
+}
+.input2{
+
+    padding: 10px;
+    width: 70%;
+    border: 0px;
+    border-bottom: 1px solid grey;
+margin-left: 37px;
+margin-top: -20px;
+}
+.but{
+    position: relative;
+    top: 6%;
+    padding: 12px;
+    width: 76%;
+    left: 37px;
+    /* background-image: linear-gradient(to right,rgb(17, 213, 213),rgb(143, 143, 243),rgb(234, 83, 196)); */
+    background-color: green;
+border: .2px;
+border-radius: 10px;
+
+}
+.p4{
+    font-size: 19px;
+    margin-top: 12%;
+    margin-left: 40%;
+}
+.error{
+    color: red;
+    margin-left: 10%;
+display: none;
+}
+img{
+    position: relative;
+    top: 0;
+    left: 47%;
+    width: 200px;
+    height: 100px;
+    
+}
+form{
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 20px;
+    border-left: 20px;
+}
+    </style>
+</head>
+
+<body>
+
+<div class="main">
+    <div>
+        <!-- <img src="./Screenshot_2023-11-09_130503-removebg.png" alt=""> -->
+        <form action="" class="log">
+            <h1>Register</h1>
+            <p class="p1">USERNAME</p>
+            <input type="text" name="username" class="input4" placeholder="enter username"><br>
+            <p class="p2">EMAIL</p>
+            <input type="email" name="email" class="input1" placeholder="enter email"><br>
+            <p class="p3">PASSWORD</p>
+            <input type="password" name="password" class="input2" placeholder="enter password"><br>
+            
+            <input type="submit" class="sub"> 
+            <button class="but">Log in</button>
+           
+           
+        </form>
+    </div>
+</div>
+    <script>
+
+let forms=document.forms
+console.log(forms[0]);
+let storing=[];
+forms[0].addEventListener("submit",(e)=>{
+    e.preventDefault()
+
+
+let username=e.target[0].value
+let email=e.target[1].value
+let password=e.target[2].value
+
+if(username.match(/[a-z]{6,24}/)&& email.match(/[a-z][@]{6,14}/) && password.match(/[0-9]{8,14}/)){
+storing.push({username:username, email:email,password:password})
+console.log("click");
+localStorage.setItem("storing",JSON.stringify(storing))
+alert("your registred sucessfully please log in ")
+}
+else{
+    let small=document.getElementsByTagName("small")
+    small[0].style.display="block"
+}
+
+
+})
+
+let sub=document.getElementsByTagName("button")
+sub[0].addEventListener("click",()=>{
+window.location.assign("./submit.html")
+})
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
